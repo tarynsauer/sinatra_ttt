@@ -1,1 +1,22 @@
-<h1>Tic-Tac-Toe</h1>
+<h1>Let's play tic-tac-toe!</h1>
+<p>Select game options to begin.</p>
+<form action="/play" method="POST">
+  <fieldset>
+    <legend>Player one:</legend>
+    <input type="radio" name="player-one" value="computer" id="player-one-computer"><label for="player-one-computer">Computer</label>
+    <input type="radio" name="player-one" value="human" id="player-one-human"><label for="player-one-human">Human</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Player two:</legend>
+    <input type="radio" name="player-two" value="computer" id="player-two-computer"><label for="player-two-computer">Computer</label>
+    <input type="radio" name="player-two" value="human" id="player-two-human"><label for="player-two-human">Human</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Difficulty level:</legend>
+    <input type="radio" name="difficulty" value="easy" id="easy-level"><label for="easy-level">Easy</label>
+    <input type="radio" name="difficulty" value="hard" id="hard-level"><label for="hard-level">Hard</label>
+  </fieldset>
+  <input type="submit" value="Start game!">
+</form>
