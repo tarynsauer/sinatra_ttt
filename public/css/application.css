@@ -1,0 +1,18 @@
+.container {
+  margin-left: 20px;
+}
+
+#board button {
+  margin: .25em;
+  display: absolute;
+  width: 10em;
+  height: 10em;
+}
+
+.row1 {
+  margin-top: 0;
+}
+
+.row2, .row3 {
+  margin-top: .25em;
+}
