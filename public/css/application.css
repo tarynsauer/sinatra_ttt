@@ -4,9 +4,9 @@
 
 #board button {
   margin: .25em;
-  display: absolute;
-  width: 10em;
-  height: 10em;
+  width: 5em;
+  height: 5em;
+  font-size: 2em;
 }
 
 .row1 {
@@ -15,4 +15,8 @@
 
 .row2, .row3 {
   margin-top: .25em;
+}
+
+.cell {
+  opacity: 0;
 }

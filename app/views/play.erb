@@ -1,0 +1,26 @@
+<h1>Play.....</h1>
+<p>Player one: <%= @player_one.player_type %> (<%= @player_one.marker %>)</p>
+<p>Player two: <%= @player_two.player_type %> (<%= @player_two.marker %>)</p>
+<p id="message">::<%= @message %></p>
+<form action ="/" method = "GET">
+  <button>Restart Game</button>
+</form>
+<div id="board">
+  <div class="row1">
+    <form action ="/move" method = "POST">
+      <button name="move" value="1A"><%= @board.all_cells["1A"] %><span class="cell">.</span></button>
+      <button name="move" value="2A"><%= @board.all_cells["2A"] %><span class="cell">.</span></button>
+      <button name="move" value="3A"><%= @board.all_cells["3A"] %><span class="cell">.</span></button>
+    </div>
+    <div class="row2">
+      <button name="move" value="1B"><%= @board.all_cells["1B"] %><span class="cell">.</span></button>
+      <button name="move" value="2B"><%= @board.all_cells["2B"] %><span class="cell">.</span></button>
+      <button name="move" value="3B"><%= @board.all_cells["3B"] %><span class="cell">.</span></button>
+    </div>
+    <div class="row3">
+      <button name="move" value="1C"><%= @board.all_cells["1C"] %><span class="cell">.</span></button>
+      <button name="move" value="2C"><%= @board.all_cells["2C"] %><span class="cell">.</span></button>
+      <button name="move" value="3C"><%= @board.all_cells["3C"] %><span class="cell">.</span></button>
+    </div>
+  </form>
+</div>

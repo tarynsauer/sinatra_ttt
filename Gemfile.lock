@@ -6,7 +6,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
-    ruby_ttt (0.0.2)
+    ruby_ttt (0.1.0)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.4)
@@ -23,7 +23,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ruby_ttt (~> 0.0.2)
+  ruby_ttt (~> 0.1.0)
   shotgun
   sinatra
   thin
