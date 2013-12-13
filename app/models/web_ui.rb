@@ -1,6 +1,7 @@
 class WebUI < UI
-  attr_accessor :message
-  def initialize
+  attr_accessor :board
+  def initialize(board)
+    @board = board
   end
 
   def first_move_message(player)
