@@ -6,12 +6,17 @@ end
 
 get '/play' do
   game = session[:game]
-  @message = game.game_status_check
-  game.current_player.next_player_turn unless game.board.empty?
-  @message = get_game_message(game) if @message.nil?
   @board = game.board
   @player_one = session[:player_one]
   @player_two = session[:player_two]
+  @message = game.game_status_check
+  game.current_player.next_player_turn unless game.board.empty?
+  @message = get_game_message(game) if @message.nil?
+  if (game.current_player.player_type == 'computer') && (!@board.game_over?)
+    cell = game.get_next_move
+    game.board.add_marker(game.current_player.marker, cell)
+    redirect to '/play'
+  end
   erb :play
 end
 
