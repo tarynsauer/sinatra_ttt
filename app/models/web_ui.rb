@@ -1,7 +1,23 @@
 class WebUI < UI
-  attr_accessor :board
-  def initialize(board)
-    @board = board
+
+  def print_active_board
+    board_string = ''
+    board.all_rows.each do |row|
+      board_string += "<div class='row'>"
+      row.each { |cell| board_string += "<button name='move' value='#{cell}'> #{board.all_cells[cell]} <span class='cell'>.</span></button>" }
+      board_string += "</div>"
+    end
+    board_string
+  end
+
+  def print_inactive_board
+    board_string = ''
+    board.all_rows.each do |row|
+      board_string += "<div class='row'>"
+      row.each { |cell| board_string += "<button> #{board.all_cells[cell]} <span class='cell'>.</span></button>" }
+      board_string += "</div>"
+    end
+    board_string
   end
 
   def first_move_message(player)
