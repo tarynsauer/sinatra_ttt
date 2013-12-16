@@ -10,7 +10,7 @@ get '/play' do
   if !@board.game_over?
     @message = session[:game].advance_game
     if session[:game].computer_move?
-      move = session[:game].get_next_move
+      move = session[:game].get_computer_move
       session[:game].verify_move(move)
       redirect to '/play'
     end
