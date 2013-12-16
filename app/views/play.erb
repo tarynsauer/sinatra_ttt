@@ -1,5 +1,5 @@
-<p><strong>Player one:</strong> <%= @player_one.player_type %> (<%= @player_one.marker %>)</p>
-<p><strong>Player two:</strong> <%= @player_two.player_type %> (<%= @player_two.marker %>)</p>
+<p><strong>Player one:</strong> <%= session[:player_one].player_type %> (<%= session[:player_one].marker %>)</p>
+<p><strong>Player two:</strong> <%= session[:player_two].player_type %> (<%= session[:player_two].marker %>)</p>
 <p class="message"><%= @message %></p>
 <form action ="/" method = "GET">
   <input type="submit" value="Restart Game" class="btn">
@@ -7,9 +7,9 @@
 <div id="board">
   <form action ="/move" method = "POST">
     <% if @board.game_over? %>
-      <%= @game.ui.print_inactive_board %>
+      <%= session[:game].ui.print_inactive_board %>
     <% else %>
-      <%= @game.ui.print_active_board %>
+      <%= session[:game].ui.print_active_board %>
     <% end %>
   </form>
 </div>
