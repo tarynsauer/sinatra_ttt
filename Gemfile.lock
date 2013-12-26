@@ -15,7 +15,7 @@ GEM
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
-    ruby_ttt (0.1.5)
+    ruby_ttt (0.3.0)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.4)
@@ -33,7 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   rspec
-  ruby_ttt (~> 0.1.5)
+  ruby_ttt (~> 0.3.0)
   shotgun
   sinatra
   thin

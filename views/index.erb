@@ -1,15 +1,26 @@
 <p>Select game options to begin.</p>
 <form action="/" method="POST">
   <fieldset>
-    <legend>Player one:</legend>
+    <legend>Player one</legend>
     <input type="radio" name="player-one" value="computer" id="player-one-computer" required><label for="player-one-computer">Computer</label>
     <input type="radio" name="player-one" value="human" id="player-one-human" required><label for="player-one-human">Human</label>
   </fieldset>
 
   <fieldset>
-    <legend>Player two:</legend>
-    <input type="radio" name="player-two" value="computer" id="player-two-computer" required><label for="player-two-computer">Computer</label>
-    <input type="radio" name="player-two" value="human" id="player-two-human"required><label for="player-two-human">Human</label>
+    <legend>Player two</legend>
+    <input type='radio' name='player-two' value='computer' id='player-two-computer' required><label for='player-two-computer'>Computer</label>
+    <input type='radio' name='player-two' value='human' id='player-two-human'required><label for='player-two-human'>Human</label>
   </fieldset>
-  <input type="submit" value="Start game!" class="btn">
+
+  <fieldset>
+    <legend>Board size</legend>
+    <label for='board-size'>Select number of rows: </label>
+    <select id='board-size' name='board-size'>
+      <option value='3'>3</option>
+      <option value='4'>4</option>
+      <option value='5'>5</option>
+      <option value='6'>6</option>
+    </select>
+  </fieldset>
+  <input type='submit' value='Start game!' class='btn'>
 </form>

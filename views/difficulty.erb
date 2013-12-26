@@ -1,9 +1,11 @@
 <p>Select difficulty level of computer player.</p>
 <form action="/difficulty" method="POST">
-  <fieldset>
-    <legend>Difficulty level:</legend>
-    <input type="radio" name="difficulty" value="easy" id="easy-level"><label for="easy-level" required>Easy</label>
-    <input type="radio" name="difficulty" value="hard" id="hard-level"><label for="hard-level" required>Hard</label>
-  </fieldset>
+  <% if (session[:player_one_type] == COMPUTER_PLAYER) %>
+    <%= show_difficulty_form(1) %>
+  <% end %>
+
+  <% if (session[:player_two_type] == COMPUTER_PLAYER) %>
+    <%= show_difficulty_form(2) %>
+  <% end %>
   <input type="submit" value="Start game!" class="btn">
 </form>
