@@ -1,15 +1,9 @@
-$LOAD_PATH << '.'
-require 'sinatra'
-require 'rspec'
-require 'ruby_ttt'
-require 'helpers'
-require 'app'
+require File.join(File.expand_path(File.dirname(__FILE__)), '/../', 'app')
 
-# setup test environment
+require 'sinatra'
+require 'rack/test'
+
 set :environment, :test
-set :run, false
-set :raise_errors, true
-set :logging, false
 
 def app
   Sinatra::Application
@@ -19,6 +13,7 @@ RSpec.configure do |config|
   config.color_enabled = true
   config.tty = true
   config.formatter = :documentation
+  config.include Rack::Test::Methods
 end
 
 class MockBoard

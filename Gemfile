@@ -4,5 +4,7 @@ ruby '1.9.3'
 gem "sinatra"
 gem "thin"
 gem 'shotgun'
-gem "ruby_ttt", "~> 0.3.0"
-gem 'rspec'
+gem "ruby_ttt", "~> 0.3.1"
+gem "cucumber"
+gem "capybara"
+gem "rspec"

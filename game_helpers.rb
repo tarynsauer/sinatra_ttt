@@ -1,3 +1,4 @@
+module GameHelpers
   def get_game
     settings = get_settings
     WebGame.new(settings)
@@ -22,7 +23,8 @@
   def show_difficulty_form(number)
     "<fieldset>
       <legend>Player #{number} difficulty level:</legend>
-      <input type='radio' name='difficulty-player-#{number}' value='computer' id='easy-level'><label for='easy-level' required>Easy</label>
-      <input type='radio' name='difficulty-player-#{number}' value='hard computer' id='hard-level'><label for='hard-level' required>Hard</label>
+      <input type='radio' name='difficulty-player-#{number}' value='computer' id='easy-level-#{number}'><label for='easy-level' required>Easy</label>
+      <input type='radio' name='difficulty-player-#{number}' value='hard computer' id='hard-level-#{number}'><label for='hard-level' required>Hard</label>
     </fieldset>"
   end
+end
