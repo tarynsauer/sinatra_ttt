@@ -32,10 +32,6 @@ Given(/^I select 'Computer' for 'Player one'$/) do
   choose "player-one-computer"
 end
 
-Given(/^I select 'Hard' for 'Player one'$/) do
-  choose "hard-level-1"
-end
-
 Given(/^I select 'Hard' for 'Player two'$/) do
   choose "hard-level-2"
 end
