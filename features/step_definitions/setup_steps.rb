@@ -1,6 +1,6 @@
 include TicTacToeCapybaraTest
 
-Given(/^I visit the index page$/) do
+Given(/^I visit the homepage$/) do
   visit "/"
 end
 

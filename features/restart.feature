@@ -4,7 +4,7 @@ Feature: Restart
   I want to go back to the homepage
 
   Scenario: Restart game from play page
-    Given I visit the index page
+    Given I visit the homepage
     And I select 'Human' for 'Player one'
     And I select 'Human' for 'Player two'
     And I press 'Start game!'

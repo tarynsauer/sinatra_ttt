@@ -5,7 +5,7 @@ Given(/^I press the (\d+)A cell button$/) do |arg1|
 end
 
 Then(/^I should see a marker in the (\d+)A cell$/) do |arg1|
-  expect(page).to have_css('#board button[value="1A"]', text: (/(X|O)/))
+  expect(page).to have_css("#board button[value=\"#{arg1}A\"]", text: (/(X|O)/))
 end
 
 Given(/^I press the (\d+)B cell button$/) do |arg1|
