@@ -1,10 +1,10 @@
 <p>Select difficulty level of computer player.</p>
 <form action="/difficulty" method="POST">
-  <% if (session[:player_one_type] == COMPUTER_PLAYER) %>
+  <% if (session[:player_one_type] == RubyTictactoe::TictactoeConstants::COMPUTER_PLAYER) %>
     <%= show_difficulty_form(1) %>
   <% end %>
 
-  <% if (session[:player_two_type] == COMPUTER_PLAYER) %>
+  <% if (session[:player_two_type] == RubyTictactoe::TictactoeConstants::COMPUTER_PLAYER) %>
     <%= show_difficulty_form(2) %>
   <% end %>
   <input type="submit" value="Start game!" class="btn">

@@ -1,7 +1,14 @@
-require File.join(File.expand_path(File.dirname(__FILE__)), '/../', 'app')
+require 'simplecov'
+SimpleCov.start
 
 require 'sinatra'
 require 'rack/test'
+require 'ruby_ttt'
+
+require 'web_board'
+require 'web_game'
+require 'web_game_setup'
+require './game_helpers.rb'
 
 set :environment, :test
 

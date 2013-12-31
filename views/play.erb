@@ -1,5 +1,5 @@
-<p><strong>Player one:</strong> <%= session[:player_one_type].capitalize %> (<%= MARKER_X %>)</p>
-<p><strong>Player two:</strong> <%= session[:player_two_type].capitalize %> (<%= MARKER_O %>)</p>
+<p><strong>Player one:</strong> <%= session[:player_one_type].capitalize %> (<%= RubyTictactoe::TictactoeConstants::MARKER_X %>)</p>
+<p><strong>Player two:</strong> <%= session[:player_two_type].capitalize %> (<%= RubyTictactoe::TictactoeConstants::MARKER_O %>)</p>
 <p class="message"><%= @message %></p>
 <form action ="/" method = "GET">
   <input type="submit" value="Restart Game" class="btn">

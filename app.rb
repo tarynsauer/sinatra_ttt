@@ -1,8 +1,13 @@
+$: << File.expand_path(File.dirname(__FILE__))
+
 require 'rubygems'
-require 'ruby_ttt'
 require 'sinatra/base'
 require 'shotgun'
-require './game_helpers.rb'
+require 'ruby_ttt'
+require 'game_helpers'
+require './lib/web_board.rb'
+require './lib/web_game.rb'
+require './lib/web_game_setup.rb'
 
 class TicTacToe < Sinatra::Base
 
@@ -25,7 +30,7 @@ include GameHelpers
     @board = game.board
     @message = game.get_message(session[:player_first_move])
     if !@board.game_over?
-      unless game.current_player.is_a?(HumanPlayer)
+      unless game.current_player.is_a?(RubyTictactoe::HumanPlayer)
         game.current_player.make_move(@board)
         session[:current_board] = game.board.all_cells
         redirect to '/play'
@@ -57,7 +62,7 @@ include GameHelpers
 
   post '/move' do
     game = get_game
-    if game.current_player.is_a?(HumanPlayer)
+    if game.current_player.is_a?(RubyTictactoe::HumanPlayer)
       game.verify_move(params['move'])
       session[:current_board] = game.board.all_cells
     end
