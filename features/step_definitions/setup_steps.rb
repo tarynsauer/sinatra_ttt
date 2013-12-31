@@ -13,7 +13,7 @@ Given(/^I select 'Human' for 'Player two'$/) do
 end
 
 When(/^I press 'Start game!'$/) do
-  click_button "Start game!"
+  page.find('.start-game-btn').click
 end
 
 Then(/^I should see 'goes first'$/) do
@@ -24,8 +24,8 @@ Given(/^I select 'Computer' for 'Player two'$/) do
   choose "player-two-computer"
 end
 
-Then(/^I should see 'Select difficulty level of computer player\.'$/) do
-  expect(page).to have_content "Select difficulty level of computer player."
+Then(/^I should see the difficulty page\.$/) do
+  page.current_path.should == '/difficulty'
 end
 
 Given(/^I select 'Computer' for 'Player one'$/) do

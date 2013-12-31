@@ -1,4 +1,4 @@
-Feature: Player
+Feature: ComputerPlayer
   In order to play a game
   As a human player
   I want to play against a computer player

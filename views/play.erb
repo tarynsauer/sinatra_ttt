@@ -2,7 +2,7 @@
 <p><strong>Player two:</strong> <%= session[:player_two_type].capitalize %> (<%= RubyTictactoe::TictactoeConstants::MARKER_O %>)</p>
 <p class="message"><%= @message %></p>
 <form action ="/" method = "GET">
-  <input type="submit" value="Restart Game" class="btn">
+  <input type="submit" value="Restart Game" class="restart-game-btn">
 </form>
 <div id="board">
   <form action ="/move" method = "POST">

@@ -19,3 +19,15 @@ end
 Then(/^cell (\d+)B should not have a marker$/) do |arg1|
   page.should have_no_selector("#board button[value='#{arg1}B']")
 end
+
+Then(/^I should see 'wins'$/) do
+  expect(page).to have_content "wins"
+end
+
+Given(/^I press the (\d+)C cell button$/) do |arg1|
+  click_button "#{arg1}C"
+end
+
+Then(/^I should see 'tie'$/) do
+  expect(page).to have_content "tie"
+end

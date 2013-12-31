@@ -15,7 +15,7 @@ Feature: Setup
   Scenario: Set difficulty level for a human vs. computer game
     And I select 'Computer' for 'Player two'
     When I press 'Start game!'
-    Then I should see 'Select difficulty level of computer player.'
+    Then I should see the difficulty page.
 
   Scenario: Set up a human vs. computer game
     And I select 'Computer' for 'Player two'
