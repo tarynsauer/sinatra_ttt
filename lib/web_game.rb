@@ -22,7 +22,22 @@ class WebGame < RubyTictactoe::Game
     RubyTictactoe::PlayerFactory.new(type_one, type_two).player_goes_first
   end
 
-  def computer_player?(type_one, type_two)
-    ((type_one.downcase) == COMPUTER_PLAYER) || ((type_two.downcase) == COMPUTER_PLAYER)
+  def computer_move_check(board, current_board)
+    if !board.game_over?
+      unless current_player.is_a?(RubyTictactoe::HumanPlayer)
+        current_player.make_move(board)
+        current_board = board.all_cells
+        return true
+      end
+      false
+    end
   end
+
+  def human_move_check(move, current_board)
+    if current_player.is_a?(RubyTictactoe::HumanPlayer)
+      verify_move(move)
+      current_board = board.all_cells
+    end
+  end
+
 end

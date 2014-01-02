@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'WebGame' do
 
   before :each do
-    @player_x = RubyTictactoe::HumanPlayer.new('X')
-    @player_o = RubyTictactoe::HumanPlayer.new('O')
+    @player_x = MockPlayer.new('X')
+    @player_o = MockPlayer.new('O')
     @player_x.opponent = @player_o
     @player_o.opponent = @player_x
     settings = { :board => WebBoard.new(3),
@@ -71,14 +71,66 @@ describe 'WebGame' do
     end
   end
 
-  describe '#computer_player?' do
-    it 'returns false if there is no computer player' do
-      @game.computer_player?('human', 'human').should be_false
+  describe '#computer_move_check' do
+    before :each do
+      @player_x = RubyTictactoe::HumanPlayer.new('X')
+      @player_o = RubyTictactoe::ComputerPlayer.new('O')
+      @player_x.opponent = @player_o
+      @player_o.opponent = @player_x
+      settings = { :board => WebBoard.new(3),
+                   :player_one => @player_x,
+                   :player_two => @player_o,
+                   :player_first_move => @player_o}
+      @game = WebGame.new(settings)
     end
 
-    it 'returns true if there is a computer player' do
-      @game.computer_player?('computer', 'human').should be_true
+    it 'updates board with computer player #make_move' do
+      @game.computer_move_check(@game.board, @game.board.all_cells)
+      @game.board.empty?.should be_false
+    end
+
+    it 'returns false if current player is human' do
+      @game.board.all_cells['1A'] = 'O'
+      @game.computer_move_check(@game.board, @game.board.all_cells).should be_false
+    end
+
+    it 'does not call #make_move when game is over' do
+      @game.board.all_cells['1A'] = 'X'
+      @game.board.all_cells['2A'] = 'X'
+      @game.board.all_cells['3A'] = 'X'
+      @game.computer_move_check(@game.board, @game.board.all_cells)
+      @game.board.all_cells.values.compact!.length.should == 3
     end
   end
 
+  describe '#human_move_check' do
+    before :each do
+      @player_x = RubyTictactoe::HumanPlayer.new('X')
+      @player_o = RubyTictactoe::ComputerPlayer.new('O')
+      @player_x.opponent = @player_o
+      @player_o.opponent = @player_x
+      settings = { :board => WebBoard.new(3),
+                   :player_one => @player_x,
+                   :player_two => @player_o,
+                   :player_first_move => @player_x}
+      @game = WebGame.new(settings)
+    end
+
+    it 'updates board with with move when valid' do
+      @game.human_move_check('1A', @game.board.all_cells)
+      @game.board.all_cells['1A'].should == 'X'
+    end
+
+    it 'does not update board when move is invalid' do
+      @game.board.all_cells['1A'] = 'O'
+      @game.human_move_check('1A', @game.board.all_cells)
+      @game.board.all_cells['1A'].should == 'O'
+    end
+
+    it 'does not update board when player is not current player' do
+      @game.board.all_cells['1A'] = 'X'
+      @game.human_move_check('1B', @game.board.all_cells)
+      @game.board.all_cells['1B'].should be_nil
+    end
+  end
 end
