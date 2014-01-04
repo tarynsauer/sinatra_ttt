@@ -7,12 +7,6 @@ describe 'AppController' do
     helpers Sinatra::Cookies
   end
 
-  before :each do
-    def session
-      MockSession.new(rack_mock_session.cookie_jar)
-    end
-  end
-
   describe "GET '/'" do
     it "loads homepage" do
       get '/'
