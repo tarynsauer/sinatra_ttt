@@ -13,7 +13,7 @@ class TicTacToe < Sinatra::Base
 
 configure do
   enable :sessions
-  set :session_secret, ENV['SESSION_SECRET'] || 'session secret'
+  # set :session_secret, ENV['SESSION_SECRET'] || 'session secret'
 end
 
 include GameHelpers
@@ -24,7 +24,7 @@ include GameHelpers
   end
 
   get '/play' do
-    redirect to '/' if session.nil?
+    redirect '/' if session[:player_one_type].nil?
     player_first_move_check
     game = get_game
     @board = game.board

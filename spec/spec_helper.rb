@@ -1,19 +1,21 @@
 require 'simplecov'
 SimpleCov.start
-
 require 'sinatra'
+require "sinatra/base"
+require "sinatra/cookies"
 require 'rack/test'
+require 'rspec'
 require 'ruby_ttt'
-
 require 'web_board'
 require 'web_game'
 require 'web_game_setup'
 require './game_helpers.rb'
-
+require './app.rb'
+require 'bundler'
 set :environment, :test
 
 def app
-  Sinatra::Application
+  TicTacToe.new
 end
 
 RSpec.configure do |config|
@@ -128,7 +130,7 @@ class MockKernel
   end
 end
 
-class SessionData
+class MockSession
   def initialize(cookies)
     @cookies = cookies
     @data = cookies['rack.session']
