@@ -1,5 +1,5 @@
 require 'spec_helper'
-ENV['RACK_ENV'] = 'test'
+
 describe 'AppController' do
   include GameHelpers
 
