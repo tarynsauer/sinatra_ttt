@@ -13,7 +13,7 @@ class TicTacToe < Sinatra::Base
 
 configure do
   enable :sessions
-  # set :session_secret, ENV['SESSION_SECRET'] || 'session secret'
+  set :session_secret, ENV['SESSION_SECRET'] || 'session secret'
 end
 
 include GameHelpers
@@ -41,9 +41,7 @@ include GameHelpers
     set_user_settings(params['player-one'], params['player-two'], params['board-size'])
 
     redirect to '/play' if large_board?
-
     redirect to '/difficulty' if computer_player?(params['player-one'], params['player-two'])
-
     redirect to '/play'
   end
 
@@ -54,6 +52,7 @@ include GameHelpers
 
   post '/difficulty' do
     set_difficulty_levels(params['difficulty-player-1'], params['difficulty-player-2'])
+    p params
     redirect to '/play'
   end
 
