@@ -1,7 +1,6 @@
 require 'simplecov'
 SimpleCov.start
 require 'sinatra'
-require "sinatra/base"
 require "sinatra/cookies"
 require 'rack/test'
 require 'ruby_ttt'
@@ -10,7 +9,6 @@ require 'web_game'
 require 'web_game_setup'
 require './game_helpers.rb'
 require './app.rb'
-set :environment, :test
 
 def app
   TicTacToe.new
@@ -51,7 +49,7 @@ class MockSession
     @data[key] = value
     session_data = Marshal.dump(@data)
     session_data = [session_data].pack("m*")
-    @cookies.merge("rack.session=#{Rack::Utils.escape(session_data)}", URI.parse("//example.org//"))
+    @cookies.merge("rack.session=#{Rack::Utils.escape(session_data)}")
     raise "session variable not set" unless @cookies['rack.session'] == session_data
   end
 end
