@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 describe 'AppController' do
-  include GameHelpers
-
-  class TicTacToe < Sinatra::Base
-    helpers Sinatra::Cookies
-  end
 
   describe "GET '/'" do
     it "loads homepage" do

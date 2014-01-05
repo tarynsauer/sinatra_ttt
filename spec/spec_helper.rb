@@ -1,7 +1,7 @@
 require 'simplecov'
 SimpleCov.start
 require 'sinatra'
-require "sinatra/cookies"
+require "sinatra/base"
 require 'rack/test'
 require 'ruby_ttt'
 require 'web_board'
