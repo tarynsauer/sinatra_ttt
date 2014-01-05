@@ -44,6 +44,19 @@ describe 'AppController' do
                         }}
       expect(last_response).to be_ok
     end
+
+    it "displays play page content" do
+      get '/play', {}, { 'rack.session' => {
+                                :player_one_type => 'human',
+                                :player_two_type => 'human',
+                                :board_size => 3,
+                                :current_board => {
+                                  "1A"=>nil, "2A"=>'X', "3A"=>nil,
+                                  "1B"=>nil, "2B"=>nil, "3B"=>nil,
+                                  "1C"=>nil, "2C"=>nil, "3C"=>nil }
+                        }}
+      expect(last_response.body).to include("Make your move")
+    end
   end
 
   describe "GET '/difficulty'" do
